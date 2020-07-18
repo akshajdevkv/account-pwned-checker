@@ -1,11 +1,12 @@
 from selenium import webdriver
 import time
+import sys
 
 driver = webdriver.Firefox(executable_path= './geckodriver')
 
 try:
-	#type your email address here
-	emails = ['yourname@email.com','myname@email.com','thiername@email.com']
+        #command line arguments
+	emails = sys.argv[1:]
 	for email in emails:
 		driver.get('https://haveibeenpwned.com/')
 		email_input = driver.find_element_by_id('Account')
